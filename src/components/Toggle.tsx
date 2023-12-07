@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type Option = {
+export type Option = {
   text: string;
   onClick?: () => void;
 };
@@ -45,6 +45,7 @@ export default function Toggle({ option1, option2 }: ToggleProps) {
           twToggle,
           selectedToggle === Toggle_Type.OPTION_1 && twSelectedToggle,
         )}
+        data-testid="option1-test"
         onClick={handleClickOption1}
       >
         {option1.text}
@@ -54,6 +55,7 @@ export default function Toggle({ option1, option2 }: ToggleProps) {
           twToggle,
           selectedToggle === Toggle_Type.OPTION_2 && twSelectedToggle,
         )}
+        data-testid="option2-test"
         onClick={handleClickOption2}
       >
         {option2.text}
