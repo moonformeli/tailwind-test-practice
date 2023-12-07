@@ -35,9 +35,9 @@ export default function Plan({
   };
 
   return (
-    <div
+    <li
       className={twMerge(
-        'flex flex-col gap-8 rounded-3xl border-[1px] border-solid border-gray-200 p-8',
+        'flex flex-1 flex-col gap-8 rounded-3xl border-[1px] border-solid border-gray-200 p-8',
         isMouseOver && 'border-indigo-600',
       )}
       onMouseOver={handleMouseOver}
@@ -89,6 +89,6 @@ export default function Plan({
           ))}
         </ul>
       )}
-    </div>
+    </li>
   );
 }
