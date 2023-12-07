@@ -1,6 +1,8 @@
+import PricingPlans from '@/components/pricing/PricingPlans';
+
 export default function PricingRoot() {
   return (
-    <section className="px-[32px] py-[128px]">
+    <section className="flex flex-col gap-16 px-8 py-32">
       <article className="flex flex-col items-center justify-center gap-[24px]">
         <div className="flex flex-col items-center gap-[8px]">
           <p className="text-base font-semibold leading-7 text-indigo-600">
@@ -15,6 +17,7 @@ export default function PricingRoot() {
           engaging your audience, creating customer loyalty, and driving sales.
         </p>
       </article>
+      <PricingPlans />
     </section>
   );
 }
