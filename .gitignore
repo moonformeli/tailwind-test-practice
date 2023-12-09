@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+backstop_data/html_report/
+
+backstop_data/bitmaps_test/

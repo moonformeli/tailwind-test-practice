@@ -40,7 +40,7 @@ export default function PricingPlans() {
   return (
     <div className="flex flex-col items-center justify-center gap-10">
       <Toggle {...options} />
-      <ul className="item-center flex justify-center gap-8">
+      <ul id="plans-list" className="item-center flex justify-center gap-8">
         {plans[selectedPlan].map((plan, i) => (
           <Plan key={i} {...plan} />
         ))}

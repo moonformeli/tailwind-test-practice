@@ -1,0 +1,50 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "Desktop",
+      "width": 1478,
+      "height": 800
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "Pricing Plans",
+      "cookiePath": "",
+      "url": "http://localhost:3000/pricing",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "#plans-list",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "#plans-list > li:first-child",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": ["#plans-list"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true,
+      "scenarioLogsInReports": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox", "--headless"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

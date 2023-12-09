@@ -3,7 +3,7 @@ export const plan_month = [
     name: 'Hobby',
     description: 'The essentials to provide your best work for clients.',
     pricing: {
-      price: 15,
+      price: 14,
       unit: 'month',
     },
     features: ['5 products', 'Up to 1,000 subscribers', 'Basic analytics'],
