@@ -1,7 +1,10 @@
+'use client';
+
 import { twMerge } from 'tailwind-merge';
 import Image from 'next/image';
 import { capitalize } from '@/utils';
 import { useState } from 'react';
+import { signIn, useSession } from 'next-auth/react';
 
 type Month = 'month';
 type Year = 'year';
@@ -26,12 +29,20 @@ export default function Plan({
 }: PlanProps) {
   const [isMouseOver, setIsMouseOver] = useState(false);
 
+  const { data: session } = useSession();
+
   const handleMouseOver = () => {
     setIsMouseOver(true);
   };
 
   const handleMouseOut = () => {
     setIsMouseOver(false);
+  };
+
+  const handlePurchase = () => {
+    if (!session) {
+      signIn();
+    }
   };
 
   return (
@@ -73,6 +84,7 @@ export default function Plan({
               'rounded-md border-[1px] border-solid border-gray-200 px-3 py-2 text-sm font-semibold leading-6 text-indigo-600',
               isMouseOver && 'bg-indigo-600 text-white',
             )}
+            onClick={handlePurchase}
           >
             Buy plan
           </button>
