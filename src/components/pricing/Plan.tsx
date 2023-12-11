@@ -40,6 +40,7 @@ export default function Plan({
         'flex flex-1 flex-col gap-8 rounded-3xl border-[1px] border-solid border-gray-200 p-8',
         isMouseOver && 'border-indigo-600',
       )}
+      data-testid="plan-container"
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >
