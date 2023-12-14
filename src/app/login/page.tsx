@@ -1,6 +1,6 @@
 'use client';
 
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
@@ -19,6 +19,9 @@ export default function LoginRoot() {
   const searchParams = useSearchParams();
   const hasError = Boolean(searchParams.get('error'));
 
+  const d = useSession();
+  console.log(d);
+
   const { handleSubmit: onSubmit, register } = useForm<Values>({
     defaultValues,
     mode: 'all',
@@ -27,7 +30,7 @@ export default function LoginRoot() {
   const handleSubmit: SubmitHandler<Values> = ({ username, password }) => {
     if (username && password) {
       // signIn('credentials', { username, password });
-      signIn('kakao');
+      signIn('kakao', { redirect: true });
     }
   };
 
