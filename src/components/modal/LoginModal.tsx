@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Modal from './Modal';
+import { signIn } from 'next-auth/react';
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -9,6 +10,10 @@ interface LoginModalProps {
 }
 
 export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
+  const handleLogin = () => {
+    signIn('kakao');
+  };
+
   return (
     <Modal
       className="flex items-center justify-center"
@@ -38,6 +43,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
           <button
             style={{ color: 'rgba(0, 0, 0, 0.85)' }}
             className="bg-kakao-bg font-apple-sd flex items-center rounded-md px-7 py-[11px]"
+            onClick={handleLogin}
           >
             <Image src="/kakao.svg" width={18} height={18} alt="" />
             <span className="px-16 text-[15px] font-semibold leading-[150%]">

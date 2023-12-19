@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import Image from 'next/image';
 import { capitalize } from '@/utils';
 import { useEffect, useState } from 'react';
-import { signIn, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useModal } from '@/hooks';
 import LoginModal from '../modal/LoginModal';
 
@@ -47,10 +47,8 @@ export default function Plan({
   };
 
   const handlePurchase = () => {
-    console.log('handlePurchase');
-    openModal();
     if (!session) {
-      // signIn();
+      openModal();
     }
   };
 
