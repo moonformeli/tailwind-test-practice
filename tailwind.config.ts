@@ -1,4 +1,5 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 const config: Config = {
   content: [
@@ -13,8 +14,14 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        'apple-sd': ['Apple SD Gothic Neo', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        'kakao-bg': '#FEE500',
+      },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;

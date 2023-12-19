@@ -22,8 +22,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body id="body" className={inter.className}>
         <AuthGuard session={session}>{children}</AuthGuard>
+        <div id="modal-container" />
       </body>
     </html>
   );

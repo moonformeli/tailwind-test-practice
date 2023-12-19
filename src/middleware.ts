@@ -27,20 +27,20 @@ export const middleware = async (request: NextRequest) => {
   });
 
   // 토큰이 없거나 유효하지 않은 경우
-  if (!validateToken(token)) {
-    url.pathname = '/login';
-    return NextResponse.redirect(url);
-  }
+  // if (!validateToken(token)) {
+  //   url.pathname = '/login';
+  //   return NextResponse.redirect(url);
+  // }
 
   // 이미지 파일인지 확인
   if (url.pathname.includes('svg')) {
     return NextResponse.next();
   }
 
-  if (!cookie) {
-    url.pathname = '/login';
-    return NextResponse.redirect(url);
-  }
+  // if (!cookie) {
+  //   url.pathname = '/login';
+  //   return NextResponse.redirect(url);
+  // }
 
   return NextResponse.next();
 };
