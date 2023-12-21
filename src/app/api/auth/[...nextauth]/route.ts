@@ -8,9 +8,6 @@ const kakaoProvider = KakaoProvider({
 
 export const authOptions: AuthOptions = {
   providers: [kakaoProvider],
-  pages: {
-    signIn: '/login',
-  },
   callbacks: {
     async jwt({ token, account, user }) {
       if (account) {
@@ -26,7 +23,7 @@ export const authOptions: AuthOptions = {
       return session;
     },
   },
-  secret: process.env.KAKAO_CLIENT_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);

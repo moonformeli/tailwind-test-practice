@@ -1,12 +1,24 @@
 import { withAuth } from 'next-auth/middleware';
-
+import { NextResponse } from 'next/server';
 import { tokenAPI } from './api';
+import type { Token } from './api/token';
 
 export default withAuth(
   async function middleware(req) {
-    console.log('middleware with withAuth', req.nextauth.token);
+    const response = NextResponse.next();
 
-    await tokenAPI.validateToken();
+    const token = req.nextauth.token as Token;
+
+    if (token) {
+      const isValid = await tokenAPI.validateToken(token);
+
+      if (isValid) {
+        return response;
+      }
+    }
+
+    response.cookies.delete('next-auth.session-token');
+    return response;
   },
   {
     callbacks: {
