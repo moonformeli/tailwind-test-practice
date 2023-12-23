@@ -32,10 +32,6 @@ export default function Plan({
   const [isMouseOver, setIsMouseOver] = useState(false);
   const { isOpen, openModal, closeModal } = useModal();
 
-  useEffect(() => {
-    console.log(`isOpen in Plan: ${isOpen}`);
-  }, [isOpen]);
-
   const { data: session } = useSession();
 
   const handleMouseOver = () => {
@@ -56,8 +52,8 @@ export default function Plan({
     <>
       <li
         className={twMerge(
-          'flex flex-1 flex-col gap-8 rounded-3xl border-[1px] border-solid border-gray-200 p-8',
-          isMouseOver && 'border-indigo-600',
+          'group flex flex-1 flex-col gap-8 rounded-3xl border-[1px] border-solid border-gray-200 p-8',
+          'hover:border-indigo-600',
         )}
         data-testid="plan-container"
         onMouseOver={handleMouseOver}
@@ -68,7 +64,7 @@ export default function Plan({
             <strong
               className={twMerge(
                 'text-gray-90 text-lg font-semibold leading-8',
-                isMouseOver && 'text-indigo-600',
+                'group-hover:text-indigo-600',
               )}
             >
               {name}
@@ -90,7 +86,7 @@ export default function Plan({
               }}
               className={twMerge(
                 'rounded-md border-[1px] border-solid border-gray-200 px-3 py-2 text-sm font-semibold leading-6 text-indigo-600',
-                isMouseOver && 'bg-indigo-600 text-white',
+                'group-hover:bg-indigo-600 group-hover:text-white',
               )}
               onClick={handlePurchase}
             >
