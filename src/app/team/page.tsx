@@ -12,7 +12,7 @@ export default function TeamPage() {
           do.
         </p>
       </article>
-      <article className="grid grid-cols-3 gap-8">
+      <article className="grid grid-cols-4 gap-8">
         <Freelancer />
         <Freelancer />
         <Freelancer />
