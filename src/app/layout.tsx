@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth/next';
 import { Inter } from 'next/font/google';
 import AuthGuard from './AuthGuard';
 import './globals.css';
+import Header from '@/components/Header';
 
 import { authOptions } from './api/auth/[...nextauth]/route';
 
@@ -23,7 +24,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body id="body" className={inter.className}>
-        <AuthGuard session={session}>{children}</AuthGuard>
+        <AuthGuard session={session}>
+          <Header />
+          {children}
+        </AuthGuard>
         <div id="modal-container" />
       </body>
     </html>
